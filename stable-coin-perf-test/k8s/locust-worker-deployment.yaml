@@ -1,0 +1,26 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: locust-worker
+  labels:
+    name: locust-worker
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: locust-worker
+  template:
+    metadata:
+      labels:
+        app: locust-worker
+    spec:
+      containers:
+        - name: locust-worker
+          image: launchbadge/stablecoin-locust@sha256:73314ec354c3063bb7eabaeba290629f78be059156cdc1e8637bc7284d62bab8
+          env:
+            - name: LOCUST_MODE
+              value: worker
+            - name: LOCUST_MASTER
+              value: locust-master
+      imagePullSecrets:
+        - name: regcred

@@ -1,0 +1,18 @@
+# gradle project-specific cache directory
+.gradle/
+
+# gradle build output directory
+build/
+
+# editor files: intellij
+.idea/
+
+# editor files: vscode
+bin/
+.classpath
+.settings
+.project
+.vscode/
+
+# local environment
+.env

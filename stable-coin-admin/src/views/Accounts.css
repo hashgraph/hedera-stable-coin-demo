@@ -1,0 +1,29 @@
+.Accounts {
+    display: flex;
+    flex-direction: column;
+}
+
+.Accounts-metrics {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+}
+
+.Accounts-headings {
+    background: white;
+    height: 40px;
+    margin-top: 40px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 130px 100px;
+    justify-items: center;
+}
+
+.Accounts-heading.name {
+    justify-self: start;
+}
+
+.Accounts-heading.balance {
+    justify-self: end;
+}

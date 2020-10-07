@@ -1,0 +1,24 @@
+.AccountItem {
+    display: flex;
+    padding: 10px 18px;
+    align-items: center;
+}
+
+.AccountItem-avatar {
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.AccountItem-displayName {
+    margin-left: 18px;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.AccountItem-publicKey {
+    color: #666666;
+    margin-right: 12px;
+}

@@ -1,0 +1,51 @@
+.Settings h1 {
+    margin-bottom: 45px;
+}
+
+.Settings-label {
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.Settings-inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Settings-input {
+    appearance: none;
+    border: 1px solid #dddddd;
+    background-color: white;
+    color: #020202;
+    border-radius: 4px;
+    outline: none;
+    padding: 13px 18px;
+    width: 400px;
+    font-size: 15px;
+}
+
+.Settings-input:focus {
+    border-color: #009BDD;
+    box-shadow: 0 0 0 1px #009BDD inset;
+}
+
+.Settings-button {
+    cursor: pointer;
+    margin-left: 22px;
+    border-radius: 25px;
+    appearance: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    outline: none;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    background-color: #2B6CB6;
+}
+
+.Settings-button:focus {
+    box-shadow: 0 0 0 2px white inset;
+}

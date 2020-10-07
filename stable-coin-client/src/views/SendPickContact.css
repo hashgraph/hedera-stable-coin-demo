@@ -1,0 +1,13 @@
+.SendPickContact-heading {
+    background: #f4f9fd;
+    font-size: 15px;
+    font-weight: 600;
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.SendPickContact-accounts {
+    padding: 10px 0;
+}

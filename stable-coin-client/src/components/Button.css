@@ -1,0 +1,15 @@
+.Button {
+    font-size: 17rem;
+    text-align: center;
+    border: none;
+    font-weight: 500;
+    padding: 20rem;
+    color: white;
+    background-color: #2B6CB6;
+    align-self: stretch;
+}
+
+.Button:disabled {
+    background-color: #eaeaea;
+    color: #666666;
+}

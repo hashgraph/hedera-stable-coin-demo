@@ -1,0 +1,31 @@
+.AmountInput-input {
+    padding: 20rem;
+    font-size: 60rem;
+    text-align: center;
+    font-weight: 600;
+    width: 300rem;
+    outline: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    border: none;
+}
+
+.AmountInput-input:focus {
+    border-color: #2b6cb6;
+}
+
+.AmountInput-chip {
+    background: #dff1f9;
+    padding: 4rem 9rem;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.AmountInput {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50rem;
+}

@@ -1,0 +1,15 @@
+.HederaIcon {
+    background: #6f70d5;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    margin-left: 8px;
+    align-items: center;
+    justify-items: center;
+}
+
+.HederaIcon img {
+    width: 24px;
+    height: 24px;
+}

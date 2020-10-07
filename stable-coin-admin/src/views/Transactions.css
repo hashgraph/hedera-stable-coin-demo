@@ -1,0 +1,80 @@
+.Transactions {
+    display: flex;
+    flex-direction: column;
+}
+
+.Transactions-metrics {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+}
+
+.Transactions-headings {
+    background: white;
+    height: 40px;
+    padding: 0 20px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 200px 200px;
+    justify-items: center;
+}
+
+.Transactions-heading.summary {
+    justify-self: start;
+}
+
+.Transactions-heading.amount {
+    justify-self: end;
+}
+
+.Transactions-header {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.Transactions-header h2 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.Transactions-bridgeFilterContainer {
+    display: flex;
+    color: #666666;
+    font-size: 16px;
+    align-items: center;
+}
+
+.Transactions-bridgeFilterSwitch {
+    width: 44px;
+    height: 30px;
+    background: white;
+    border: 1px solid #cccccc;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 3px;
+}
+
+.Transactions-bridgeFilterSwitch.active {
+    justify-content: flex-start;
+    background: #009bdd;
+}
+
+.Transactions-bridgeFilterThumb {
+    width: 20px;
+    height: 20px;
+    background: #cccccc;
+    border-radius: 15px;
+}
+
+.Transactions-bridgeFilterSwitch.active .Transactions-bridgeFilterThumb {
+    background: white;
+}

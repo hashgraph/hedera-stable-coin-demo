@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package stablecoin;
+
+option java_package = "com.hedera.hashgraph.stablecoin.proto";
+option java_multiple_files = true;
+
+message Transaction {
+    bytes body = 1;
+    bytes signature = 2;
+}

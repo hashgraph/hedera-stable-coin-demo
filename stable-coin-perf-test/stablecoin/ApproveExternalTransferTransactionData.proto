@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package stablecoin;
+
+option java_package = "com.hedera.hashgraph.stablecoin.proto";
+option java_multiple_files = true;
+
+message ApproveExternalTransferTransactionData {
+    string networkURI = 1;
+    bytes to = 2;
+    bytes amount = 3;
+}

@@ -1,0 +1,50 @@
+.Dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.Dashboard-metrics {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+}
+
+.Dashboard-main {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+}
+
+.Dashboard-card {
+    flex: 1;
+    background: white;
+    height: 500px;
+    border-radius: 4px;
+    padding: 25px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.Dashboard-cardHeader {
+    display: flex;
+    margin-bottom: 35px;
+}
+
+.Dashboard-cardTitle {
+    flex: 1;
+    font-size: 20px;
+    color: #666666;
+}
+
+.Dashboard-cardCount {
+    color: #666666;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.Dashboard-empty {
+    color: #999999;
+}

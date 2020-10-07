@@ -1,0 +1,38 @@
+.Header {
+    background-color: white;
+    border-bottom: 1rem solid #cbcbce;
+    padding-top: 18rem;
+    padding-bottom: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header img {
+    height: 34rem;
+}
+
+.Header-text {
+    font-size: 17rem;
+    font-weight: 500;
+    color: #020202;
+}
+
+.Header-back {
+    position: absolute;
+    left: 10rem;
+    padding: 10rem;
+    border-radius: 50%;
+    height: 24rem;
+    width: 24rem;
+}
+
+img.Header-avatar {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    position: absolute;
+    right: 20rem;
+    border: 1rem solid #666666;
+}

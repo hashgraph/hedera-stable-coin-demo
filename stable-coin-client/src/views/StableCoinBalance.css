@@ -1,0 +1,32 @@
+.StableCoinBalance {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding-top: 60rem;
+    padding-bottom: 30rem;
+    align-items: center;
+}
+
+.StableCoinBalance-available {
+    color: #666666;
+}
+
+.StableCoinBalance-spacer {
+    flex: 1;
+}
+
+.StableCoinBalance-publicKeyLabel {
+    font-weight: 500;
+    margin-top: 40rem;
+}
+
+.StableCoinBalance-publicKey {
+    font-weight: 500;
+    word-break: break-all;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    color: #666666;
+    padding: 20rem 30rem;
+    margin: 0 20rem;
+}

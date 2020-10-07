@@ -1,0 +1,62 @@
+.Register {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40rem;
+    padding-left: 40rem;
+    padding-right: 40rem;
+}
+
+.Register-topLogo {
+    margin-bottom: 80rem;
+}
+
+.Register-input {
+    appearance: none;
+    outline: none;
+    background: transparent;
+    padding: 14rem 0;
+    font-size: 16rem;
+    border: none;
+    border-bottom: 1px solid #999999;
+}
+
+.Register-input:focus {
+    border-color: #2b6cb6;
+}
+
+.Register-networkOption {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    height: 50rem;
+}
+
+.Register-networkOptionLabel {
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.Register-networkOptionsLabel {
+    color: #666666;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    height: 35rem;
+    margin-top: 40rem;
+    background: white;
+}
+
+.Register-networkOptionCircle {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    border: 1px solid #979797;
+    background: white;
+    margin-right: 10rem;
+}
+
+.Register-networkOption.active .Register-networkOptionCircle {
+    background: #009bdd;
+    box-shadow: 0 0 0 4rem white inset;
+}

@@ -1,0 +1,99 @@
+.AddMoney {
+    flex: 1;
+    background: white;
+    padding: 70rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddMoney-successIcon {
+    color: #58CC95;
+    height: 85rem;
+    width: 85rem;
+    margin-bottom: 40rem;
+}
+
+.AddMoney-busyOverlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.AddMoney-success {
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddMoney-successMessage {
+    font-weight: 500;
+    margin-bottom: 40rem;
+}
+
+.AddMoney-successLabel {
+    font-weight: 500;
+    margin-bottom: 10rem;
+}
+
+.AddMoney-successValue {
+    font-weight: 500;
+    color: #666666;
+    margin-bottom: 40rem;
+    word-break: break-all;
+    text-align: center;
+    padding: 0 30rem;
+    line-height: 1.4;
+}
+
+.AddMoney-busy {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddMoney-balance {
+    margin-bottom: 60rem;
+}
+
+.AddMoney-partyContainer {
+    align-self: stretch;
+    padding: 20rem;
+}
+
+.AddMoney-partyLabel {
+    font-weight: 500;
+    color: #666666;
+}
+
+.AddMoney-partyName {
+    margin-top: 15rem;
+    font-weight: 600;
+}
+
+.AddMoney-available {
+    font-weight: 500;
+    margin-top: 10rem;
+    color: #666666;
+}
+
+.AddMoney-divider {
+    background: #DCDEDF;
+    height: 1px;
+    align-self: stretch;
+    margin: 0 20rem;
+    box-sizing: border-box;
+}

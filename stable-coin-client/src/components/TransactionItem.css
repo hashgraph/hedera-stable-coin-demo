@@ -1,0 +1,61 @@
+.TransactionItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.TransactionItem-icon {
+    margin-right: 25px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #999999;
+    border-radius: 50%;
+    position: relative;
+}
+
+.TransactionItem-networkIcon {
+    position: absolute;
+    right: -5rem;
+    bottom: -5rem;
+}
+
+.TransactionItem-avatar {
+    border-radius: 50%;
+}
+
+.TransactionItem-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-weight: 500;
+}
+
+.TransactionItem-title {
+    margin-bottom: 4px;
+}
+
+.TransactionItem-consensus {
+    color: #666666;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.TransactionItem-description {
+    display: flex;
+}
+
+.TransactionItem-address {
+    margin-right: 8rem;
+    color: #666666;
+    font-weight: 500;
+}
+
+.TransactionItem-amount {
+    color: #2b6cb6;
+    font-weight: 600;
+}
+
+.TransactionItem-amount.negative {
+    color: #666666;
+}

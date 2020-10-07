@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package stablecoin;
+
+option java_package = "com.hedera.hashgraph.stablecoin.proto";
+option java_multiple_files = true;
+
+import "stablecoin/ConstructTransactionData.proto";
+import "stablecoin/ApproveAllowanceTransactionData.proto";
+import "stablecoin/MintTransactionData.proto";
+import "stablecoin/BurnTransactionData.proto";
+import "stablecoin/TransferTransactionData.proto";
+import "stablecoin/TransferFromTransactionData.proto";
+import "stablecoin/ProposeOwnerTransactionData.proto";
+import "stablecoin/ClaimOwnershipTransactionData.proto";
+import "stablecoin/ChangeSupplyManagerTransactionData.proto";
+import "stablecoin/ChangeComplianceManagerTransactionData.proto";
+import "stablecoin/ChangeEnforcementManagerTransactionData.proto";
+import "stablecoin/FreezeTransactionData.proto";
+import "stablecoin/UnfreezeTransactionData.proto";
+import "stablecoin/WipeTransactionData.proto";
+import "stablecoin/SetKycPassedTransactionData.proto";
+import "stablecoin/UnsetKycPassedTransactionData.proto";
+import "stablecoin/IncreaseAllowanceTransactionData.proto";
+import "stablecoin/DecreaseAllowanceTransactionData.proto";
+import "stablecoin/ApproveExternalTransferTransactionData.proto";
+import "stablecoin/ExternalTransferTransactionData.proto";
+
+message TransactionBody {
+    bytes caller = 1;
+
+    // HederaTransactionId.accountId
+    uint64 operatorAccountNum = 2;
+
+    // HederaTransactionId.validStart
+    uint64 validStartNanos = 3;
+
+    oneof data {
+        ConstructTransactionData construct = 10;
+        ApproveAllowanceTransactionData approve = 11;
+        MintTransactionData mint = 12;
+        BurnTransactionData burn = 13;
+        TransferTransactionData transfer = 14;
+        TransferFromTransactionData transferFrom = 15;
+        ProposeOwnerTransactionData proposeOwner = 16;
+        ClaimOwnershipTransactionData claimOwnership = 17;
+        ChangeSupplyManagerTransactionData changeSupplyManager = 18;
+        ChangeComplianceManagerTransactionData changeComplianceManager = 19;
+        ChangeEnforcementManagerTransactionData changeEnforcementManager = 20;
+        FreezeTransactionData freeze = 21;
+        UnfreezeTransactionData unfreeze = 22;
+        WipeTransactionData wipe = 23;
+        SetKycPassedTransactionData setKycPassed = 24;
+        UnsetKycPassedTransactionData unsetKycPassed = 25;
+        IncreaseAllowanceTransactionData increaseAllowance = 26;
+        DecreaseAllowanceTransactionData decreaseAllowance = 27;
+        ApproveExternalTransferTransactionData approveExternalTransfer = 28;
+        ExternalTransferTransactionData externalTransfer = 29;
+        ExternalTransferTransactionData externalTransferFrom = 30;
+    }
+}

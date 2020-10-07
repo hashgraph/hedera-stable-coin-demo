@@ -1,0 +1,33 @@
+.Risk {
+    display: grid;
+    grid-template-rows: repeat(3, max-content);
+    grid-row-gap: 3px;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+.Risk-box {
+    background: #e0e0e0;
+    width: 10px;
+    height: 8px;
+}
+
+.Risk-label {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.Risk[data-value="1"] .Risk-box:nth-child(3) {
+    background: #dac112;
+}
+
+.Risk[data-value="2"] .Risk-box:nth-child(2),
+.Risk[data-value="2"] .Risk-box:nth-child(3) {
+    background: #e79e40;
+}
+
+.Risk[data-value="3"] .Risk-box {
+    background: #d36363;
+}

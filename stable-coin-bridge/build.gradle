@@ -1,0 +1,53 @@
+plugins {
+    id 'idea'
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id "com.google.protobuf" version "0.8.12" apply false
+}
+
+group = "com.hedera.hashgraph.stablecoin.bridge"
+version = "1.0.0"
+description = "Hedera™ Hashgraph Stable Coin Bridge"
+
+allprojects {
+    apply plugin: "java"
+
+    sourceCompatibility = 14
+    targetCompatibility = 14
+
+    repositories {
+        jcenter()
+        maven { url "https://dl.bintray.com/ethereum/maven/" }
+    }
+
+    dependencies {
+        implementation 'com.google.guava:guava:29.0-jre'
+    }
+}
+
+dependencies {
+    implementation project(":proto")
+    implementation project(":sdk")
+    implementation 'com.hedera.hashgraph:sdk:1.1.0'
+    implementation 'io.github.cdimascio:java-dotenv:5.2.1'
+    implementation 'io.grpc:grpc-netty-shaded:1.30.2'
+    implementation "org.web3j:abi:5.0.0"
+    implementation "org.web3j:contracts:5.0.0"
+    implementation "org.web3j:core:5.0.0"
+}
+
+application {
+    mainClassName = 'com.hedera.hashgraph.stablecoin.bridge.App'
+}
+
+jar {
+    enabled = false
+    manifest {
+        attributes 'Main-Class': 'com.hedera.hashgraph.stablecoin.bridge.App'
+    }
+}
+
+tasks.shadowJar.configure {
+    classifier = null
+}

@@ -1,0 +1,6 @@
+# built files
+lib/
+
+# generated files from proto definitions
+src/proto.js
+src/proto.d.ts

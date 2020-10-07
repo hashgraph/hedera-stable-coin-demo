@@ -1,0 +1,21 @@
+{
+    "name": "@stable-coin/sdk",
+    "private": true,
+    "version": "1.0.0-pre",
+    "main": "lib/index.js",
+    "scripts": {
+        "prepare": "run-s compile:ts",
+        "compile:ts": "tsc"
+    },
+    "dependencies": {
+        "@hashgraph/sdk": "^1.4.0",
+        "@stable-coin/proto": "file:../stable-coin-proto-js/",
+        "bignumber.js": "^9.0.0",
+        "node-biginteger": "^0.0.10",
+        "tweetnacl": "^1.0.3"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "typescript": "^4.0.2"
+    }
+}

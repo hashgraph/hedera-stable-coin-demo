@@ -1,0 +1,101 @@
+.ModalConfirm {
+    position: fixed;
+    top: 300px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 20;
+}
+
+.ModalConfirm.is-open {
+    display: block;
+}
+
+.ModalConfirm-main {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 4px;
+    background: white;
+}
+
+.ModalConfirm::before {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2px);
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    content: " ";
+    height: 100vh;
+}
+
+.ModalConfirm-title {
+    color: #666666;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.ModalConfirm-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-column-gap: 10px;
+    margin-top: 50px;
+}
+
+.ModalConfirm-button {
+    font-family: inherit;
+    width: 130px;
+    height: 46px;
+    border-radius: 25px;
+    background: white;
+    border: 1px solid #616161;
+    font-size: 17px;
+    color: #616161;
+    text-align: center;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+}
+
+.ModalConfirm-button.submit {
+    background: #2b6cb6;
+    border-color: #2b6cb6;
+    color: white;
+}
+
+.ModalConfirm-label {
+    font-size: 16px;
+    color: #666666;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+.ModalConfirm-input {
+    appearance: none;
+    border: 1px solid #dddddd;
+    background-color: white;
+    color: #020202;
+    border-radius: 4px;
+    outline: none;
+    padding: 13px 18px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.ModalConfirm-input:focus {
+    border-color: #009bdd;
+    box-shadow: 0 0 0 1px #009bdd inset;
+}

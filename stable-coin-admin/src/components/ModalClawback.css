@@ -1,0 +1,18 @@
+.ModalClawback-balance {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.ModalClawback-fullBalance {
+    background: #f6f8fa;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: #266ab8;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.ModalClawback-fullBalance:hover {
+    border-color: #266ab8;
+}

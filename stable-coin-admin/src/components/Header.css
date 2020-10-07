@@ -1,0 +1,47 @@
+.Header {
+    background-color: white;
+    height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.Header-wrapper {
+    display: flex;
+    align-items: center;
+    height: inherit;
+}
+
+.Header-logo {
+    height: 34px;
+    margin-right: 24px;
+}
+
+.Header-nav {
+    font-size: 16px;
+    padding: 6px 4px;
+    margin: 0 14px;
+    box-sizing: border-box;
+    position: relative;
+    top: 2px;
+    border-bottom: 2px solid transparent;
+    color: inherit;
+    text-decoration: none;
+}
+
+.Header-nav:hover,
+.Header-nav.router-link-active {
+    color: #009BDD;
+}
+
+.Header-nav.router-link-active {
+    border-bottom-color: #009BDD;
+}
+
+.Header-navIcon {
+    font-size: 26px;
+    padding: 0 4px;
+}
+
+.Header-spacer {
+    flex: 1;
+}

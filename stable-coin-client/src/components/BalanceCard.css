@@ -1,0 +1,26 @@
+.BalanceCard {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.BalanceCard-title {
+    font-size: 19rem;
+    font-weight: 500;
+}
+
+.BalanceCard-available {
+    color: #999999;
+}
+
+.BalanceCard-main {
+    padding: 20rem;
+}
+
+.BalanceCard-frozen {
+    background: #b62b5e;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+    padding: 0 20rem;
+    color: white;
+}

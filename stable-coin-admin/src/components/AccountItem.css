@@ -1,0 +1,66 @@
+.AccountItem {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 130px 100px;
+    height: 70px;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+.AccountItem-displayName {
+    font-size: 16px;
+    color: #009bdd;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.AccountItem-networkIcon {
+    margin-left: 10px;
+}
+
+.AccountItem-publicKey {
+    color: #666666;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.AccountItem-balance {
+    color: #666666;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.AccountItem-balance.zero {
+    color: #d36363;
+    font-weight: 500;
+}
+
+.AccountItem-status {
+    color: #69c17f;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AccountItem-statusIcon.frozen {
+    color: #009bdd;
+}
+
+.AccountItem-menu {
+    color: #999999;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.AccountItem-menuIcon:hover {
+    color: #009bdd;
+}
+
+.AccountItem-menu .ContextMenu-menu {
+    right: 30px;
+}

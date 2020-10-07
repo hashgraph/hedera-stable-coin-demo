@@ -1,0 +1,22 @@
+.ContextMenu-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+    font-size: 15px;
+    color: #666666;
+    font-weight: 500;
+    border-radius: 4px;
+    width: 150px;
+    z-index: 10;
+}
+
+.ContextMenu-item {
+    height: 45px;
+    display: flex;
+    border-radius: 4px;
+    padding: 0 20px;
+    align-items: center;
+    cursor: pointer;
+}

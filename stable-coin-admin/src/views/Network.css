@@ -1,0 +1,172 @@
+.Network {
+    display: flex;
+    flex-direction: column;
+}
+
+.Network-metrics {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+}
+
+.Network-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.Network-optionMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.Network-optionCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #979797;
+    background: white;
+    margin: 0 15px;
+}
+
+.Network-select {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.Network-optionAddress {
+    margin-top: 4px;
+    color: #999999;
+}
+
+.Network-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    padding-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #cccccc;
+}
+
+.Network-option.active .Network-optionCircle {
+    border-color: #009bdd;
+    background: #009bdd;
+    box-shadow: 0 0 0 4px white inset;
+}
+
+.Network-worldImageContainer {
+    position: relative;
+    flex: 1;
+    padding: 50px;
+    object-fit: contain;
+}
+
+.Network-worldImagePin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    /*left: 54px;*/
+    /*top: 134px;*/
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px white inset;
+    background: white;
+    border: 1px solid #009bdd;
+}
+
+.Network-worldImagePin.active {
+    background: #009bdd;
+}
+
+/* hedera network nodes */
+
+.Network-hederaNodePin {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fc6e4f;
+}
+
+.Network-hederaNodePin[data-value="1"] {
+    left: 105px;
+    top: 160px;
+}
+
+.Network-hederaNodePin[data-value="2"] {
+    left: 110px;
+    top: 190px;
+}
+
+.Network-hederaNodePin[data-value="3"] {
+    left: 165px;
+    top: 170px;
+}
+
+.Network-hederaNodePin[data-value="4"] {
+    left: 210px;
+    top: 170px;
+}
+
+.Network-hederaNodePin[data-value="5"] {
+    left: 200px;
+    top: 185px;
+}
+
+.Network-hederaNodePin[data-value="6"] {
+    left: 220px;
+    top: 155px;
+}
+
+.Network-hederaNodePin[data-value="7"] {
+    left: 420px;
+    top: 155px;
+}
+
+.Network-hederaNodePin[data-value="8"] {
+    left: 410px;
+    top: 145px;
+}
+
+.Network-hederaNodePin[data-value="9"] {
+    left: 422px;
+    top: 142px;
+}
+
+.Network-hederaNodePin[data-value="10"] {
+    left: 470px;
+    top: 120px;
+}
+
+.Network-hederaNodePin[data-value="11"] {
+    left: 600px;
+    top: 230px;
+}
+
+.Network-nodeLegend {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    top: 0;
+}
+
+.Network-nodeLegendPin {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fc6e4f;
+    margin: 0 10px 0 25px;
+}
+
+.Network-nodeLegendPin.hsc {
+    background: #009bdd;
+}
+
+.Network-nodeLegendPinLabel {
+    color: #666666;
+}

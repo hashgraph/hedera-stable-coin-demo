@@ -1,0 +1,31 @@
+.Metric {
+    background-color: white;
+    border-radius: 4px;
+    padding: 40px 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Metric-label {
+    font-size: 18px;
+    color: #666666;
+}
+
+.Metric-amount {
+    color: #009bdd;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 35px;
+}
+
+.Metric-description {
+    color: #666666;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.Metric-description:empty {
+    display: none;
+}

@@ -1,0 +1,22 @@
+.Home {
+    padding: 15rem;
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 20rem;
+    flex: 1;
+    overflow: auto;
+}
+
+.Home-recentActivity {
+    background: white;
+    padding: 20rem;
+}
+
+.Home-recentActivity .BalanceCard-title {
+    margin-bottom: 30rem;
+    margin-top: 10rem;
+}
+
+.Home-spacer {
+    height: 5rem;
+}

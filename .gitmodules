@@ -1,0 +1,6 @@
+[submodule "stable-coin-java-hcs"]
+	path = stable-coin-java-hcs
+	url = git@github.com:hashgraph/hedera-stable-coin.git
+[submodule "stable-coin-solidity-ethereum"]
+	path = stable-coin-solidity-ethereum
+	url = git@github.com:hashgraph/hedera-stable-coin-solidity-ethereum.git

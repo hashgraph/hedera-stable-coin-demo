@@ -1,0 +1,36 @@
+.FlaggedAccountItem {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.FlaggedAccountItem-main {
+    display: flex;
+    padding: 0 10px;
+    flex: 1;
+    flex-direction: column;
+}
+
+.FlaggedAccountItem-displayName {
+    color: #009bdd;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.FlaggedAccountItem-balance {
+    color: #666666;
+    font-weight: 500;
+    margin-top: 7px;
+}
+
+.FlaggedAccountItem-menu {
+    color: #999999;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}

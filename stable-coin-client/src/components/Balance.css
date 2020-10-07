@@ -1,0 +1,17 @@
+.Balance {
+    margin: 10rem 0;
+    display: flex;
+}
+
+.Balance-amount {
+    font-size: 40rem;
+    letter-spacing: -0.5rem;
+}
+
+.Balance-dollar {
+    font-size: 26rem;
+    font-weight: 500;
+    align-self: center;
+    position: relative;
+    top: -5rem;
+}

@@ -1,0 +1,21 @@
+:root {
+    font-size: min(calc(1 / 414 * 100 * 1vmin), 1px);
+    height: 100vh;
+}
+
+body {
+    height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    background-color: #F6F7F9;
+    font-family: "Encode Sans", sans-serif;
+    font-size: 15rem;
+    color: #020202;
+}
+
+#app {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+}
