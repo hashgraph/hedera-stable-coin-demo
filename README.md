@@ -22,6 +22,7 @@ _Note: Assumes `git` is installed
 # Clone repository
 git clone https://github.com/hashgraph/hedera-stable-coin-demo.git
 cd hedera-stable-coin-demo
+git submodule sync
 git submodule update --init
 ```
 
