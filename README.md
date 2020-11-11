@@ -179,10 +179,6 @@ nano .env
 
 - VUE_APP_HSC_PLATFORM="http://localhost:9005"
 
-**Port the app net nodes we connect to listen onto**
-
-- VUE_APP_HSC_APPNET_PORT=9000
-
 **List of appnet node end points for the clients**
 
 - VUE_APP_APP_NET_NODES=[{"address": "localhost:8080"}]
@@ -235,7 +231,7 @@ nano .env
 
 _Note: This is for rendering nodes on a map, not critical_
 
-- VUE_APP_APP_NET_NODES=[{"name": "Node 1", "address": "localhost:8080","left": "230px", "top", "150px"}]
+- VUE_APP_APP_NET_NODES=[{"name": "Node 1", "address": "localhost:8080","left": "230px", "top": "150px"}]
 
 ** Ethereum Contract Address**
 VUE_APP_ETH_CONTRACT_ADDRESS="0x125b7195212f40faD937444C29D99eA4990E88f1"
