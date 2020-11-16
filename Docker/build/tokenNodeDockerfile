@@ -1,0 +1,8 @@
+FROM openjdk:14
+
+#COPY --from=build /hedera-stable-coin/build/libs/stable-coin-0.2.0.jar /srv/stable-coin-0.2.0.jar
+COPY --from=stable-coin/buildjava:latest /hedera-stable-coin-demo/stable-coin-java-hcs/build/libs/stable-coin-0.2.0.jar /srv/stable-coin-0.2.0.jar
+
+WORKDIR /srv
+CMD java -jar stable-coin-0.2.0.jar
+EXPOSE 8082
