@@ -2,6 +2,12 @@
 
 ## Prerequisites
 
+In order to run the stable coin demo, you will need a Hedera account for the network you want to deploy against (Mainnet or Testnet). 
+
+Testnet accounts can easily be created via http://portal.hedera.com.
+
+In addition to an account, you will need the following software components.
+ 
 ### Docker setup prerequisites
 
 - Docker version 19.03.13
