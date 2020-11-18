@@ -69,13 +69,23 @@ Note: _no other changes are necessary at this stage, all other variables are set
 
 #### Step 1 - build the images
 
-The first step consists in building the images, this takes a fair amount of time since each of the components is compiled from source here. Intermediate images `stable-coin/buildjs:latest` and `stable-coin/buildjava:latest` are used to speed up the process where the same compilation steps are necessary for various components, these images are deleted at the end of the build.
+The first step consists in building the images. You have two options here: either let the build pull the source code from github, or build from your local version of the repository.
+
+Note: _The build scripts were prepared for MacOS, it's possible the scripts will need adaptation for alternative unix/linux distributions._
+
+* Pull from github repository during build (this creates two additional staging images for the build)
 
 ```shell script
 ./build.sh
 ```
 
-Note: These errors are perfectly normal
+* Build from local source
+
+```shell script
+./buildlocal.sh
+```
+
+Note: _These errors are perfectly normal during the build._
 
 ```text
 Removing images
@@ -150,7 +160,12 @@ Note: _You may stop and re-run the containers as often as you wish_
 
 The client user interface should now be available at http://`serverip`:8080 and the admin user interface at http://`serverip`:8081.
 
-Try to register a new user in two separate browser windows. _Note, cookies are used so two browsers such as chrome and safari may need to be started in parallel for this_
+Try to register a new user in two separate browser windows. 
+
+Note: _cookies are used so two browsers such as chrome and safari may need to be started in parallel for this_
+
+Note: _if you have reset the environment resulting in a new Topic Id, it will be necessary to clear cookies in your browsers so they don't assume a prior "identity"_
+
 
 You should then be able to "buy" stable coin and transfer between users.
 
