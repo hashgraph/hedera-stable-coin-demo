@@ -4,4 +4,4 @@ COPY --from=stable-coin/buildjava:latest /hedera-stable-coin-demo/stable-coin-ja
 
 WORKDIR /srv
 CMD java -jar stable-coin-0.2.0.jar
-EXPOSE 9000
+EXPOSE 8082

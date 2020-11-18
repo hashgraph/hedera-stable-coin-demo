@@ -3,4 +3,4 @@ FROM openjdk:14
 COPY --from=stable-coin/buildjava:latest /hedera-stable-coin-demo/stable-coin-platform/build/libs/stable-coin-platform-1.0.0.jar /srv/stable-coin-platform-1.0.0.jar
 WORKDIR /srv
 CMD java -jar stable-coin-platform-1.0.0.jar
-EXPOSE 9005
+EXPOSE 8083
