@@ -5,3 +5,5 @@ dist/
 Docker/postgres-data
 Docker/.env.global
 Docker/build/.env.production
+stable-coin-client/.env.production
+stable-coin-admin/.env.production
