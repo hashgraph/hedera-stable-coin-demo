@@ -31,7 +31,7 @@ services:
             - HSC_STATE_DIR=_state
             - HSC_STATE_HISTORY_SIZE=3
         ports:
-            - "8082:9000"
+            - "8082:8082"
     platform:
         container_name: stable-coin-token-platform
         depends_on:
@@ -47,7 +47,7 @@ services:
             - HSC_FIXED_NODE_ID=0.0.3
             - HSC_HTTP_PORT=8083
         ports:
-            - "8083:9005"
+            - "8083:8083"
     clientui:
         container_name: stable-coin-token-client
         depends_on:
