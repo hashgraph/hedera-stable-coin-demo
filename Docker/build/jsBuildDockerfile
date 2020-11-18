@@ -42,8 +42,3 @@ RUN yarn link "@stable-coin/sdk"
 # compile
 RUN yarn
 RUN yarn build
-
-WORKDIR /
-RUN pwd
-RUN ls /hedera-stable-coin-demo/stable-coin-client
-RUN ls /hedera-stable-coin-demo/stable-coin-admin
