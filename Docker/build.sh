@@ -58,7 +58,7 @@ echo "stop the docker images, replace the HSC_TOPIC_ID in .env.global with new v
 echo "and restart the containers with 'docker-compose up'"
 echo "----------------------------------------------------------------------------------------"
 
-sed -i '' "s|^HSC_TOPIC_ID|#HSC_TOPIC_ID|g" .env.global
+sed -i'.original' -e "s|^HSC_TOPIC_ID|#HSC_TOPIC_ID|g" .env.global
 
 echo "Build complete, you may now start with 'docker-compose up'"
 

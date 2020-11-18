@@ -85,7 +85,7 @@ cd ../stable-coin-java-hcs
 echo "----------------------------------------------------------------------------------------"
 echo "Changing token node image port to 8082 from 9000"
 echo "----------------------------------------------------------------------------------------"
-sed -i '' "s|^EXPOSE 9000|EXPOSE 8082|g" Dockerfile
+sed -i'.original' -e "s|^EXPOSE 9000|EXPOSE 8082|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Building token node image"
@@ -95,7 +95,7 @@ docker build -t stable-coin/token-node:latest --no-cache .
 echo "----------------------------------------------------------------------------------------"
 echo "Resetting token node image port from 8082 to 9000"
 echo "----------------------------------------------------------------------------------------"
-sed -i '' "s|^EXPOSE 8082|EXPOSE 9000|g" Dockerfile
+sed -i'.original' -e "s|^EXPOSE 8082|EXPOSE 9000|g" Dockerfile
 
 # Build platform
 echo "----------------------------------------------------------------------------------------"
@@ -107,7 +107,7 @@ cd ../stable-coin-platform
 echo "----------------------------------------------------------------------------------------"
 echo "Changing platform image port to 8083 from 9005"
 echo "----------------------------------------------------------------------------------------"
-sed -i '' "s|^EXPOSE 9005|EXPOSE 8083|g" Dockerfile
+sed -i'.original' -e "s|^EXPOSE 9005|EXPOSE 8083|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Building platform image"
@@ -117,7 +117,7 @@ docker build -t stable-coin/platform:latest --no-cache .
 echo "----------------------------------------------------------------------------------------"
 echo "Resetting platform image port from 8083 to 9005"
 echo "----------------------------------------------------------------------------------------"
-sed -i '' "s|^EXPOSE 8083|EXPOSE 9005|g" Dockerfile
+sed -i'.original' -e "s|^EXPOSE 8083|EXPOSE 9005|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Stopping database"
@@ -133,7 +133,7 @@ echo "stop the docker images, replace the HSC_TOPIC_ID in .env.global with new v
 echo "and restart the containers with 'docker-compose up'"
 echo "----------------------------------------------------------------------------------------"
 
-sed -i '' "s|^HSC_TOPIC_ID|#HSC_TOPIC_ID|g" .env.global
+sed -i'.original' -e "s|^HSC_TOPIC_ID|#HSC_TOPIC_ID|g" .env.global
 
 echo "Build complete, you may now start with 'docker-compose up'"
 
