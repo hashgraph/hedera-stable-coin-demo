@@ -26,7 +26,7 @@ RUN git submodule update --init
 # Build Java SDK
 WORKDIR /hedera-stable-coin-demo/stable-coin-java-hcs
 # replace localhost with db in build.gradle so the flyway scripts work
-RUN sed -i "s|localhost|host.docker.internal|g" build.gradle
+RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
 
 RUN ./gradlew flywayMigrate jooqGenerate build
 
@@ -34,6 +34,6 @@ RUN ./gradlew flywayMigrate jooqGenerate build
 WORKDIR /hedera-stable-coin-demo/stable-coin-platform
 
 # replace localhost with db in build.gradle so the flyway scripts work
-RUN sed -i "s|localhost|host.docker.internal|g" build.gradle
+RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
 
 RUN ./gradlew flywayMigrate jooqGenerate build
