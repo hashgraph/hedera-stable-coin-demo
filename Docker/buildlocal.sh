@@ -8,8 +8,6 @@ docker-compose rm -f -s -v
 echo "----------------------------------------------------------------------------------------"
 echo "Removing images"
 echo "----------------------------------------------------------------------------------------"
-docker image rm stable-coin/buildjava:latest
-docker image rm stable-coin/buildjs:latest
 docker image rm stable-coin/client-ui:latest
 docker image rm stable-coin/admin-ui:latest
 docker image rm stable-coin/platform:latest
