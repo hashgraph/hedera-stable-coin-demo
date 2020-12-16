@@ -92,6 +92,13 @@ export default defineComponent({
             toDisplayName = toAccount?.displayName ?? "";
         }
 
+        if (fromDisplayName.length > 10) {
+            fromDisplayName = fromDisplayName.substring(0,1).concat("...").concat(fromDisplayName.substring(fromDisplayName.length - 6));
+        }
+        if (toDisplayName.length > 10) {
+            toDisplayName = toDisplayName.substring(0,1).concat("...").concat(toDisplayName.substring(toDisplayName.length - 6));
+        }
+
         return (
             <div class="TransactionItem">
                 <div class="TransactionItem-main">
