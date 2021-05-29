@@ -1218,7 +1218,7 @@
   version "1.0.0-pre"
   dependencies:
     "@hashgraph/sdk" "^1.4.0"
-    "@stable-coin/proto" "file:../../../../../../.cache/yarn/v6/npm-@stable-coin-sdk-1.0.0-pre-3815d1e4-04f8-49f3-be5a-70036714da7f-1600185487143/node_modules/@stable-coin/stable-coin-proto-js"
+    "@stable-coin/proto" "file:../stable-coin-proto-js"
     bignumber.js "^9.0.0"
     node-biginteger "^0.0.10"
     tweetnacl "^1.0.3"
@@ -3800,9 +3800,9 @@ dns-equal@^1.0.0:
   integrity sha1-s55/HabrCnW6nBcySzR1PEfgZU0=
 
 dns-packet@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.1.tgz#12aa426981075be500b910eedcd0b47dd7deda5a"
-  integrity sha512-0UxfQkMhYAUaZI+xrNZOz/as5KgDU0M/fQ9b6SpkyLbk3GEswDi6PADJVaYJradtRVsRIlF1zLyOodbcTCDzUg==
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.4.tgz#e3455065824a2507ba886c55a89963bb107dec6f"
+  integrity sha512-BQ6F4vycLXBvdrJZ6S3gZewt6rcrks9KBgM9vrhW+knGRqc8uEdT7fuCwloc7nny5xNoMJ17HGH0R/6fpo8ECA==
   dependencies:
     ip "^1.1.0"
     safe-buffer "^5.0.1"
