@@ -194,13 +194,6 @@ Reference implementation in Java of a Hedera Stable Coin.
 
 refer to [Hedera Stable Coin](https://github.com/hashgraph/hedera-stable-coin/blob/master/README.md) for deployment details.
 
-#### Build stable-coin-java-hcs
-
-```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-java-hcs
-./gradlew build
-```
-
 ### Platform — `stable-coin-platform`
 
 Sample implementation of a larger platform around a Stable Coin network.
@@ -208,7 +201,7 @@ Sample implementation of a larger platform around a Stable Coin network.
 #### Build stable-coin-platform
 
 ```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-platform
+cd hedera-stable-coin-demo/stable-coin-platform
 # Create the database
 sudo su -l postgres
 createdb -h localhost -U postgres stable_coin_platform
@@ -239,7 +232,7 @@ nano .env
 
 - HSC_FIXED_NODE_ID=0.0.3
 
-**Topic on Hedera to use**
+**Topic on Hedera to use (copy from stable-coin-java-hcs .env)**
 
 - HSC_TOPIC_ID=0.0.____
 
@@ -254,14 +247,14 @@ nano .env
 
 _HSC = Hedera Stable Coin, ESC = Ethereum Stable Coin_
 
-- HSC_COMPLIANCE_MANAGER_KEY=302e02__
+- HSC_COMPLIANCE_MANAGER_KEY=302e02__ (you may use your operator private key for initial testing)
 - ESC_COMPLIANCE_MANAGER_KEY=0x___
 
 **Used for minting money to accounts**
 
 _HSC = Hedera Stable Coin, ESC = Ethereum Stable Coin_
 
-- HSC_SUPPLY_MANAGER_KEY=302e02__
+- HSC_SUPPLY_MANAGER_KEY=302e02__ (you may use your operator private key for initial testing)
 - ESC_SUPPLY_MANAGER_KEY=0x___
 
 **URL to a remote node for interacting with the ethereum network**
@@ -355,7 +348,7 @@ nano .env
 
 _Choose the port you wish to run the client on in the command below_
 
-``` shell script
+```shell script
 yarn serve --port 8082
 ```
 
@@ -404,7 +397,7 @@ VUE_APP_ETH_CONTRACT_ADDRESS="0x125b7195212f40faD937444C29D99eA4990E88f1"
 
 _Choose the port you wish to run the client on in the command below_
 
-``` shell script
+```shell script
 yarn serve --port 8083
 ```
 
@@ -446,6 +439,24 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 # install yarn
 sudo apt update
 sudo apt install yarn
+```
+
+## Developing further
+
+If you make changes to the database schema, you'll need to rebuild the automatically generated code.
+
+```shell
+# Set environment variables
+export HSC_DATABASE_URL="postgresql://localhost:5432/"
+export HSC_POSTGRES_DB="stable_coin"
+export HSC_DATABASE_USERNAME="postgres"
+export HSC_DATABASE_PASSWORD="password"
+
+# Create / update entities in the database
+./gradlew flywayMigrate
+
+# Build java artifacts
+./gradlew jooqGenerate
 ```
 
 ## License
