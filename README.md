@@ -2,12 +2,12 @@
 
 ## Prerequisites
 
-In order to run the stable coin demo, you will need a Hedera account for the network you want to deploy against (Mainnet or Testnet). 
+In order to run the stable coin demo, you will need a Hedera account for the network you want to deploy against (Mainnet or Testnet).
 
 Testnet accounts can easily be created via http://portal.hedera.com.
 
 In addition to an account, you will need the following software components.
- 
+
 ### Docker setup prerequisites
 
 - Docker version 19.03.13
@@ -82,7 +82,6 @@ export BRANCH=""
 #export BRANCH="-b branch_name"
 ./build.sh
 ```
-
 
 * Build from local source
 
@@ -161,7 +160,7 @@ Note: _You may stop and re-run the containers as often as you wish_
 
 The client user interface should now be available at http://`serverip`:8080 and the admin user interface at http://`serverip`:8081.
 
-Try to register a new user in two separate browser windows. 
+Try to register a new user in two separate browser windows.
 
 Note: _cookies are used so two browsers such as chrome and safari may need to be started in parallel for this_
 
@@ -238,7 +237,7 @@ nano .env
 
 **Database information for transaction and event logging**
 
-- PLATFORM_DATABASE_URL=postgresql://localhost:5432/ 
+- PLATFORM_DATABASE_URL=postgresql://localhost:5432/
 - PLATFORM_DATABASE_DB=stable_coin_platform
 - PLATFORM_DATABASE_USERNAME=postgres
 - PLATFORM_DATABASE_PASSWORD=password
