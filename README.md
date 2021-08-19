@@ -75,9 +75,14 @@ Note: _The build scripts were prepared for MacOS, it's possible the scripts will
 
 * Pull from github repository during build (this creates two additional staging images for the build)
 
+Note: _You can specify a branch to build from, be sure to include `-b ` at the beginning of the environment variable._
+
 ```shell script
+export BRANCH=""
+#export BRANCH="-b branch_name"
 ./build.sh
 ```
+
 
 * Build from local source
 
@@ -99,13 +104,9 @@ Error: No such image: stable-coin/token-node:latest
 
 Note: _Running this build script will always clean up the environment before starting the build, for example, the volume created to persist the Postgres TimescaleDB files is deleted, the existing containers and images are also deleted_
 
-#### Step 3 - first run
+#### Step 2 - start the containers
 
-Once build is complete, you can start the containers with the following command
-
-```shell script
-docker-compose up
-```
+Once build is complete, you may start the containers with `docker-compose up`.
 
 Watch the console output, there will be some errors which are normal at this stage.
 
@@ -130,7 +131,7 @@ stable-coin-token-node | Nov 16, 2020 1:59:36 PM org.jooq.tools.JooqLogger info
 
 `CTRL+C` as soon as `stable-coin-token-node | Listening on port : 8082` appears on the console.
 
-#### Step 4 - Update .env.global with Topic ID
+#### Step 3 - Update .env.global with Topic ID
 
 edit the `.env.global` file with the Topic Id
 
@@ -142,7 +143,7 @@ locate the line that starts with `#HSC_TOPIC_ID=`.
 
 Uncomment the line and input the Topic ID created in the previous step (For example: `HSC_TOPIC_ID=0.0.107057`) and save the changes.
 
-#### Step 5 - Run the containers
+#### Step 4 - Run the containers again
 
 ```shell script
 docker-compose up
@@ -156,7 +157,7 @@ docker-compose start
 
 Note: _You may stop and re-run the containers as often as you wish_
 
-#### Step 6 - Test the UIs
+#### Step 5 - Test the UIs
 
 The client user interface should now be available at http://`serverip`:8080 and the admin user interface at http://`serverip`:8081.
 
@@ -197,7 +198,7 @@ refer to [Hedera Stable Coin](https://github.com/hashgraph/hedera-stable-coin/bl
 
 ```shell script
 cd ~/hedera-stable-coin-demo/stable-coin-java-hcs
-./gradlew flywayMigrate jooqGenerate build
+./gradlew build
 ```
 
 ### Platform — `stable-coin-platform`
@@ -213,7 +214,7 @@ sudo su -l postgres
 createdb -h localhost -U postgres stable_coin_platform
 # CTRL+D to exit postgres user shell
 
-./gradlew flywayMigrate jooqGenerate build
+./gradlew build
 ```
 
 #### Setup environment for stable-coin-platform
@@ -244,7 +245,8 @@ nano .env
 
 **Database information for transaction and event logging**
 
-- PLATFORM_DATABASE_URL=postgresql://localhost:5432/stable_coin_platform
+- PLATFORM_DATABASE_URL=postgresql://localhost:5432/ 
+- PLATFORM_DATABASE_DB=stable_coin_platform
 - PLATFORM_DATABASE_USERNAME=postgres
 - PLATFORM_DATABASE_PASSWORD=password
 
