@@ -1,0 +1,39 @@
+FROM openjdk:14-alpine AS build
+
+#Get APK up to date
+RUN apk update && apk upgrade
+
+RUN apk add git
+
+# install protocol buffers compiler
+ENV GLIBC_REPO=https://github.com/sgerrand/alpine-pkg-glibc
+ENV GLIBC_VERSION=2.28-r0
+
+RUN set -ex && \
+    apk --update add libstdc++ curl ca-certificates && \
+    for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION}; \
+        do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
+    apk add --allow-untrusted /tmp/*.apk && \
+    rm -v /tmp/*.apk && \
+    /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib
+
+RUN git clone https://github.com/hashgraph/hedera-stable-coin-demo.git
+
+WORKDIR /hedera-stable-coin-demo
+RUN git submodule sync
+RUN git submodule update --init
+
+# Build Java SDK
+WORKDIR /hedera-stable-coin-demo/stable-coin-java-hcs
+# replace localhost with db in build.gradle so the flyway scripts work
+RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
+
+RUN ./gradlew flywayMigrate jooqGenerate build
+
+# Build platform
+WORKDIR /hedera-stable-coin-demo/stable-coin-platform
+
+# replace localhost with db in build.gradle so the flyway scripts work
+RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
+
+RUN ./gradlew flywayMigrate jooqGenerate build

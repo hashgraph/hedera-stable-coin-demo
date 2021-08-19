@@ -1,0 +1,44 @@
+FROM node:14.15-alpine3.12 AS build
+
+#Get APK up to date
+RUN apk update && apk upgrade
+
+RUN apk add git
+
+RUN git clone https://github.com/hashgraph/hedera-stable-coin-demo.git
+
+WORKDIR /hedera-stable-coin-demo
+RUN git submodule sync
+RUN git submodule update --init
+
+WORKDIR /hedera-stable-coin-demo/stable-coin-proto-js
+# compile
+RUN yarn
+# create a link for other projects
+RUN yarn link
+
+WORKDIR /hedera-stable-coin-demo/stable-coin-sdk-js
+# link to stable-coin-proto-js
+RUN yarn link "@stable-coin/proto"
+# compile
+RUN yarn
+# create a link for other projects
+RUN yarn link
+
+# Admin UI
+COPY .env.production /hedera-stable-coin-demo/stable-coin-admin
+WORKDIR /hedera-stable-coin-demo/stable-coin-admin
+# link to stable-coin-sdk-js
+RUN yarn link "@stable-coin/sdk"
+# compile
+RUN yarn
+RUN yarn build
+
+# Client UI
+COPY .env.production /hedera-stable-coin-demo/stable-coin-client
+WORKDIR /hedera-stable-coin-demo/stable-coin-client
+# link to stable-coin-sdk-js
+RUN yarn link "@stable-coin/sdk"
+# compile
+RUN yarn
+RUN yarn build

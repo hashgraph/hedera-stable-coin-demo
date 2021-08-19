@@ -1,0 +1,70 @@
+version: "3"
+services:
+    db:
+        container_name: stable-coin-db
+        build:
+            context: postgres
+        restart: on-failure
+        environment:
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_USER=postgres
+            - POSTGRES_MULTIPLE_DATABASES=stable_coin,stable_coin_platform
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./postgres-data:/var/lib/postgresql/data
+    token-node:
+        container_name: stable-coin-token-node
+        image: stable-coin/token-node:latest
+        depends_on:
+            - db
+        restart: on-failure
+        env_file:
+            - .env.global
+        environment:
+            - HSC_NETWORK=testnet
+            - HSC_STATE_PORT=8082
+            - HSC_DATABASE_URL=postgresql://db:5432/stable_coin
+            - HSC_DATABASE_USERNAME=postgres
+            - HSC_DATABASE_PASSWORD=password
+            - HSC_COMMIT_INTERVAL=5
+            - HSC_STATE_DIR=_state
+            - HSC_STATE_HISTORY_SIZE=3
+        ports:
+            - "8082:8082"
+    platform:
+        container_name: stable-coin-token-platform
+        depends_on:
+            - token-node
+        image: stable-coin/platform:latest
+        restart: on-failure
+        env_file:
+            - .env.global
+        environment:
+            - PLATFORM_DATABASE_URL=postgresql://db:5432/stable_coin_platform
+            - PLATFORM_DATABASE_USERNAME=postgres
+            - PLATFORM_DATABASE_PASSWORD=password
+            - HSC_FIXED_NODE_ID=0.0.3
+            - HSC_HTTP_PORT=8083
+        ports:
+            - "8083:8083"
+    clientui:
+        container_name: stable-coin-token-client
+        depends_on:
+            - platform
+        image: stable-coin/client-ui:latest
+        restart: on-failure
+        env_file:
+            - .env.global
+        ports:
+            - "8080:80"
+    adminui:
+        container_name: stable-coin-token-admin
+        depends_on:
+            - platform
+        image: stable-coin/admin-ui:latest
+        restart: on-failure
+        env_file:
+            - .env.global
+        ports:
+            - "8081:80"

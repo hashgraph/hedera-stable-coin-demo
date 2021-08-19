@@ -60,12 +60,19 @@ dependencies {
     implementation "org.web3j:abi:5.0.0"
     implementation "org.web3j:contracts:5.0.0"
     implementation "org.web3j:core:5.0.0"
+    // flyway
+    compile "org.flywaydb:flyway-core:7.11.2"
 }
 
 flyway {
-    url = 'jdbc:postgresql://localhost:5432/stable_coin_platform'
-    user = 'postgres'
-    password = 'password'
+    def dbURL = System.getenv("PLATFORM_DATABASE_URL") ?: "postgresql://localhost:5432/"
+    def dbSCHEMA = System.getenv("PLATFORM_DATABASE_DB") ?: "stable_coin_platform"
+    def dbUSER = System.getenv("PLATFORM_DATABASE_USERNAME")
+    def dbPASS = System.getenv("PLATFORM_DATABASE_PASSWORD")
+
+    url = "jdbc:${dbURL}${dbSCHEMA}"
+    user = "${dbUSER}"
+    password = "${dbPASS}"
     locations = ['filesystem:src/main/resources/migrations']
 }
 
@@ -73,13 +80,18 @@ task jooqGenerate {
     doLast() {
         def writer = new StringWriter()
 
+        def dbURL = System.getenv("PLATFORM_DATABASE_URL") ?: "postgresql://localhost:5432/"
+        def dbSCHEMA = System.getenv("PLATFORM_DATABASE_DB") ?: "stable_coin"
+        def dbUSER = System.getenv("PLATFORM_DATABASE_USERNAME")
+        def dbPASS = System.getenv("PLATFORM_DATABASE_PASSWORD")
+
         new MarkupBuilder(writer)
             .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.13.0.xsd') {
                 jdbc {
                     driver('org.postgresql.Driver')
-                    url('jdbc:postgresql://localhost:5432/stable_coin_platform')
-                    user('postgres')
-                    password('password')
+                    url("jdbc:${dbURL}${dbSCHEMA}")
+                    user("${dbUSER}")
+                    password("${dbPASS}")
                 }
                 generator {
                     name('io.github.jklingsporn.vertx.jooq.generate.classic.ClassicReactiveVertxGenerator')

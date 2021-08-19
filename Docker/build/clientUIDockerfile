@@ -1,0 +1,2 @@
+FROM httpd:2.4
+COPY --from=stable-coin/buildjs:latest /hedera-stable-coin-demo/stable-coin-client/dist/ /usr/local/apache2/htdocs/

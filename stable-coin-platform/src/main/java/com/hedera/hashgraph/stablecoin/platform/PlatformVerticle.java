@@ -56,7 +56,7 @@ public final class PlatformVerticle extends AbstractVerticle {
     final AccountId hederaFixedNodeId = Optional.ofNullable(env.get("HSC_FIXED_NODE_ID")).map(AccountId::fromString).orElse(null);
 
     final PgPool pgPool = PgPool.pool(
-        PgConnectOptions.fromUri(requireEnv("PLATFORM_DATABASE_URL"))
+        PgConnectOptions.fromUri(requireEnv("PLATFORM_DATABASE_URL").concat(requireEnv("PLATFORM_DATABASE_DB")))
             .setUser(requireEnv("PLATFORM_DATABASE_USERNAME"))
             .setPassword(requireEnv("PLATFORM_DATABASE_PASSWORD")),
         new PoolOptions()

@@ -18,4 +18,4 @@ bin/
 .env
 
 # jOOQ: generated code
-src/main/java/com/hedera/hashgraph/stablecoin/platform/db/
+#src/main/java/com/hedera/hashgraph/stablecoin/platform/db/
