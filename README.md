@@ -269,8 +269,16 @@ _Note: Leave empty/commented if you don't want to use the bridge feature_
 
 #### Run stable-coin-platform
 
-``` shell script
+```shell script
 java -jar build/libs/stable-coin-platform-1.0.0.jar
+```
+
+should output
+
+```shell script
+...
+Platform listening on port: 9005
+...
 ```
 
 ### Protobuf definitions - `stable-coin-proto-js`
