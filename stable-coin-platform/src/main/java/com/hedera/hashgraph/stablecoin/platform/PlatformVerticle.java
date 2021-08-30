@@ -17,6 +17,7 @@ import io.vertx.ext.web.handler.CorsHandler;
 import io.vertx.pgclient.PgConnectOptions;
 import io.vertx.pgclient.PgPool;
 import io.vertx.sqlclient.PoolOptions;
+import org.flywaydb.core.Flyway;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DefaultConfiguration;
 import org.web3j.crypto.Credentials;
@@ -24,13 +25,12 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.http.HttpService;
 
 import javax.annotation.Nullable;
-import javax.swing.text.html.Option;
 import java.util.Objects;
 import java.util.Optional;
 
 public final class PlatformVerticle extends AbstractVerticle {
     // access to the system environment overlaid with a .env file, if present
-    final Dotenv env = Dotenv.configure().ignoreIfMissing().load();
+    final static Dotenv env = Dotenv.configure().ignoreIfMissing().load();
 
     final ConsensusTopicId hederaTopicId = requireEnv("HSC_TOPIC_ID")
         .transform(ConsensusTopicId::fromString);
@@ -77,17 +77,29 @@ public final class PlatformVerticle extends AbstractVerticle {
     final HederaRegisterHandler hederaRegisterHandler = new HederaRegisterHandler(
         queryExecutor, complianceManagerPrivateKey, hederaClient, hederaTopicId, hederaOperatorId.account);
 
-    private GetAllUserHandler getAllUserHandler;
-
     final DismissFlagHandler dismissFlagHandler = new DismissFlagHandler(queryExecutor);
 
     public static void main(String[] args) {
+
+        String postgresUrl = requireEnv("PLATFORM_DATABASE_URL");
+        String postgresDatabase = requireEnv("PLATFORM_DATABASE_DB");
+        String postgresUser = requireEnv("PLATFORM_DATABASE_USERNAME");
+        String postgresPassword = requireEnv("PLATFORM_DATABASE_PASSWORD");
+
+        Flyway flyway = Flyway
+            .configure()
+            .dataSource("jdbc:".concat(postgresUrl).concat(postgresDatabase), postgresUser, postgresPassword)
+            .locations("classpath:migrations")
+            .connectRetries(20)
+            .load();
+        flyway.migrate();
+
         Vertx.vertx().deployVerticle(
             PlatformVerticle.class.getName(),
             new DeploymentOptions().setInstances(16));
     }
 
-    private String requireEnv(String name) {
+    private static String requireEnv(String name) {
         return Objects.requireNonNull(env.get(name), "missing environment variable " + name);
     }
 
