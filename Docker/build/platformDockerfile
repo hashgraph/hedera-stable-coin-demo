@@ -2,10 +2,11 @@ FROM openjdk:14
 
 RUN groupadd --gid 1000 appuser
 RUN useradd --uid 1000 --gid appuser appuser
-USER appuser
 
 RUN mkdir -p /srv
 RUN chown appuser /srv
+
+USER appuser
 
 COPY --from=stable-coin/buildjava:latest /hedera-stable-coin-demo/stable-coin-platform/build/libs/stable-coin-platform-1.0.0.jar /srv/stable-coin-platform-1.0.0.jar
 
