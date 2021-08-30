@@ -29,7 +29,7 @@ cp .env.global ../stable-coin-client/.env.production
 echo "----------------------------------------------------------------------------------------"
 echo "Starting database"
 echo "----------------------------------------------------------------------------------------"
-docker-compose up --detach db
+#docker-compose up --detach db
 
 # Javascript first, gives the db time to spool up
 echo "----------------------------------------------------------------------------------------"
@@ -80,12 +80,13 @@ echo "Building token node"
 echo "----------------------------------------------------------------------------------------"
 
 cd ../stable-coin-java-hcs
-./gradlew flywayMigrate jooqGenerate build
+#./gradlew flywayMigrate jooqGenerate build
+./gradlew build
 
 echo "----------------------------------------------------------------------------------------"
 echo "Changing token node image port to 8082 from 9000"
 echo "----------------------------------------------------------------------------------------"
-sed -i'.original' -e "s|^EXPOSE 9000|EXPOSE 8082|g" Dockerfile
+#sed -i'.original' -e "s|^EXPOSE 9000|EXPOSE 8082|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Building token node image"
@@ -95,19 +96,20 @@ docker build -t stable-coin/token-node:latest --no-cache .
 echo "----------------------------------------------------------------------------------------"
 echo "Resetting token node image port from 8082 to 9000"
 echo "----------------------------------------------------------------------------------------"
-sed -i'.original' -e "s|^EXPOSE 8082|EXPOSE 9000|g" Dockerfile
+#sed -i'.original' -e "s|^EXPOSE 8082|EXPOSE 9000|g" Dockerfile
 
 # Build platform
 echo "----------------------------------------------------------------------------------------"
 echo "Building platform"
 echo "----------------------------------------------------------------------------------------"
 cd ../stable-coin-platform
-./gradlew flywayMigrate jooqGenerate build
+#./gradlew flywayMigrate jooqGenerate build
+./gradlew build
 
 echo "----------------------------------------------------------------------------------------"
 echo "Changing platform image port to 8083 from 9005"
 echo "----------------------------------------------------------------------------------------"
-sed -i'.original' -e "s|^EXPOSE 9005|EXPOSE 8083|g" Dockerfile
+#sed -i'.original' -e "s|^EXPOSE 9005|EXPOSE 8083|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Building platform image"
@@ -117,13 +119,13 @@ docker build -t stable-coin/platform:latest --no-cache .
 echo "----------------------------------------------------------------------------------------"
 echo "Resetting platform image port from 8083 to 9005"
 echo "----------------------------------------------------------------------------------------"
-sed -i'.original' -e "s|^EXPOSE 8083|EXPOSE 9005|g" Dockerfile
+#sed -i'.original' -e "s|^EXPOSE 8083|EXPOSE 9005|g" Dockerfile
 
 echo "----------------------------------------------------------------------------------------"
 echo "Stopping database"
 echo "----------------------------------------------------------------------------------------"
-cd ../Docker
-docker-compose down
+#cd ../Docker
+#docker-compose down
 
 echo
 echo "----------------------------------------------------------------------------------------"

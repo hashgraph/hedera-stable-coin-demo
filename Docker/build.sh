@@ -19,17 +19,13 @@ mkdir -p postgres-data
 echo "copying environment file to build"
 cp .env.global build/.env.production
 
-echo "Starting database"
-docker-compose up --detach db
-
 cd build
 
-# Javascript first, gives the db time to spool up
-echo "Building javascript artefacts"
-docker build -t stable-coin/buildjs:latest -f jsBuildDockerfile --no-cache .
-
 echo "Building java artefacts"
-docker build -t stable-coin/buildjava:latest -f javaBuildDockerfile --no-cache .
+docker build -t stable-coin/buildjava:latest -f javaBuildDockerfile --no-cache --build-arg BRANCH .
+
+echo "Building javascript artefacts"
+docker build -t stable-coin/buildjs:latest -f jsBuildDockerfile --no-cache --build-arg BRANCH .
 
 echo "Building client ui"
 docker build -t stable-coin/client-ui:latest -f clientUIDockerfile --no-cache .
@@ -44,8 +40,6 @@ echo "Building token node"
 docker build -t stable-coin/token-node:latest -f tokenNodeDockerfile --no-cache .
 
 cd ..
-echo "Stopping database"
-docker-compose down
 
 echo "Removing build staging images"
 docker image rm stable-coin/buildjava:latest

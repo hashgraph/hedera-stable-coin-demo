@@ -1,11 +1,12 @@
 FROM node:14.15-alpine3.12 AS build
+ARG BRANCH
 
 #Get APK up to date
 RUN apk update && apk upgrade
 
 RUN apk add git
-
-RUN git clone https://github.com/hashgraph/hedera-stable-coin-demo.git
+RUN echo $branch
+RUN git clone ${BRANCH} https://github.com/hashgraph/hedera-stable-coin-demo.git
 
 WORKDIR /hedera-stable-coin-demo
 RUN git submodule sync

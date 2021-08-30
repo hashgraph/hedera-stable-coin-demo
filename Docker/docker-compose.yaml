@@ -10,7 +10,7 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_MULTIPLE_DATABASES=stable_coin,stable_coin_platform
         ports:
-            - "5432:5432"
+            - "5433:5432"
         volumes:
             - ./postgres-data:/var/lib/postgresql/data
     token-node:
@@ -24,14 +24,15 @@ services:
         environment:
             - HSC_NETWORK=testnet
             - HSC_STATE_PORT=8082
-            - HSC_DATABASE_URL=postgresql://db:5432/stable_coin
+            - HSC_DATABASE_URL=postgresql://db:5433/
+            - HSC_POSTGRES_DB=stable_coin
             - HSC_DATABASE_USERNAME=postgres
             - HSC_DATABASE_PASSWORD=password
             - HSC_COMMIT_INTERVAL=5
             - HSC_STATE_DIR=_state
             - HSC_STATE_HISTORY_SIZE=3
         ports:
-            - "8082:8082"
+            - "8082:9000"
     platform:
         container_name: stable-coin-token-platform
         depends_on:
@@ -41,13 +42,14 @@ services:
         env_file:
             - .env.global
         environment:
-            - PLATFORM_DATABASE_URL=postgresql://db:5432/stable_coin_platform
+            - PLATFORM_DATABASE_URL=postgresql://db:5433/
+            - PLATFORM_DATABASE_DB=stable_coin_platform
             - PLATFORM_DATABASE_USERNAME=postgres
             - PLATFORM_DATABASE_PASSWORD=password
             - HSC_FIXED_NODE_ID=0.0.3
             - HSC_HTTP_PORT=8083
         ports:
-            - "8083:8083"
+            - "8083:9005"
     clientui:
         container_name: stable-coin-token-client
         depends_on:
