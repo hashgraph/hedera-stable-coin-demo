@@ -1,4 +1,5 @@
 FROM openjdk:14-alpine AS build
+ARG BRANCH
 
 #Get APK up to date
 RUN apk update && apk upgrade
@@ -17,7 +18,7 @@ RUN set -ex && \
     rm -v /tmp/*.apk && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib
 
-RUN git clone https://github.com/hashgraph/hedera-stable-coin-demo.git
+RUN git clone ${BRANCH} https://github.com/hashgraph/hedera-stable-coin-demo.git
 
 WORKDIR /hedera-stable-coin-demo
 RUN git submodule sync
@@ -25,15 +26,10 @@ RUN git submodule update --init
 
 # Build Java SDK
 WORKDIR /hedera-stable-coin-demo/stable-coin-java-hcs
-# replace localhost with db in build.gradle so the flyway scripts work
-RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
 
-RUN ./gradlew flywayMigrate jooqGenerate build
+RUN ./gradlew build
 
 # Build platform
 WORKDIR /hedera-stable-coin-demo/stable-coin-platform
 
-# replace localhost with db in build.gradle so the flyway scripts work
-RUN sed -i "s|localhost|172.17.0.1|g" build.gradle
-
-RUN ./gradlew flywayMigrate jooqGenerate build
+RUN ./gradlew build

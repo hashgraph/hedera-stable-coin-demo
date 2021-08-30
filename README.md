@@ -287,7 +287,7 @@ Message definitions for use by the clients
 #### Build stable-coin-proto-js
 
 ```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-proto-js
+cd ../stable-coin-proto-js
 # compile
 yarn
 # create a link for other projects
@@ -301,7 +301,7 @@ SDK for use by the client and admin user interfaces
 #### Build stable-coin-sdk-js
 
 ```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-sdk-js
+cd ../stable-coin-sdk-js
 # link to stable-coin-proto-js
 yarn link "@stable-coin/proto"
 # compile
@@ -317,7 +317,7 @@ Sample implementation of a client on top of the platform **and** network.
 #### Build stable-coin-client
 
 ```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-client
+cd ../stable-coin-client
 # link to stable-coin-sdk-js
 yarn link "@stable-coin/sdk"
 # compile
@@ -364,7 +364,7 @@ yarn serve --port 8082
 Sample implementation of an administration portal on top of the platform **and** network.
 
 ```shell script
-cd ~/hedera-stable-coin-demo/stable-coin-admin
+cd ../stable-coin-admin
 # link to stable-coin-sdk-js
 yarn link "@stable-coin/sdk"
 # compile

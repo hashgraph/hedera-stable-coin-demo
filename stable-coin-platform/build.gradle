@@ -18,6 +18,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '6.0.0'
     id "org.flywaydb.flyway" version "6.5.5"
     id "com.google.protobuf" version "0.8.12" apply false
+    id 'nu.studer.jooq' version '5.0.1'
 }
 
 
@@ -62,6 +63,14 @@ dependencies {
     implementation "org.web3j:core:5.0.0"
     // flyway
     compile "org.flywaydb:flyway-core:7.11.2"
+
+    // jOOQ
+    implementation 'org.jooq:jooq:3.13.4'
+    implementation 'org.jooq:jooq-meta:3.13.4'
+    implementation 'org.postgresql:postgresql:42.2.14'
+
+    // jOOQ database driver
+    jooqGenerator 'org.postgresql:postgresql:42.2.14'
 }
 
 flyway {
