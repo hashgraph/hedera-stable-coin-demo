@@ -1187,7 +1187,7 @@
   version "1.0.0-pre"
   dependencies:
     "@hashgraph/sdk" "^1.4.0"
-    "@stable-coin/proto" "file:../../../../../../.cache/yarn/v6/npm-@stable-coin-sdk-1.0.0-pre-4af53978-ac94-4d00-b552-3460288ca4c7-1599747149886/node_modules/@stable-coin/stable-coin-proto-js"
+    "@stable-coin/proto" "file:../stable-coin-proto-js"
     bignumber.js "^9.0.0"
     node-biginteger "^0.0.10"
     tweetnacl "^1.0.3"
@@ -4551,9 +4551,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
-  integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 for-in@^1.0.2:
   version "1.0.2"
