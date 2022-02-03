@@ -64,9 +64,7 @@ export default defineComponent({
                         label="StableCoin in Circulation"
                         amount={
                             "$" +
-                            this.$store.getters.totalSupply
-                                .integerValue()
-                                .toString()
+                            parseInt(this.$store.getters.totalSupply).toLocaleString()
                         }
                     />
                     <Metric label="Transactions per Second" amount={"0"} />
