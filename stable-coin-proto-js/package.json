@@ -10,7 +10,7 @@
         "compile:proto_ts": "pbts -o lib/proto.d.ts lib/proto.js"
     },
     "dependencies": {
-        "protobufjs": "^6.10.1"
+        "protobufjs": "^6.11.3"
     },
     "devDependencies": {
         "copyfiles": "^2.3.0",
