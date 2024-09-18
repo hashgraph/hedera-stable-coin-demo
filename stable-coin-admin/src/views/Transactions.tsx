@@ -6,6 +6,8 @@ import * as hederaStableCoinPlatform from "../service/hedera-stable-coin-platfor
 import { Transaction } from "../service/hedera-stable-coin/state";
 import TransactionList from "../components/TransactionList";
 import { Account } from "../service/hedera-stable-coin-platform";
+import TransactionVolume from "../components/TransactionVolume";
+import {React} from "mdue";
 
 export default defineComponent({
     name: "Transactions",
@@ -70,10 +72,13 @@ export default defineComponent({
                     <Metric
                         label="StableCoin in Circulation"
                         amount={
-                            "$" + this.$store.getters.totalSupply.toFixed(0)
+                            "$" + parseInt(this.$store.getters.totalSupply).toLocaleString()
                         }
                     />
-                    <Metric label="24hr Transfer Volume" amount={"0"} />
+                    <TransactionVolume
+                        transactions={this.filteredTransactions}
+                    />
+                    {/*<Metric label="24hr Transfer Volume" amount={"0"} />*/}
                 </div>
                 <div class="Transactions-header">
                     <h2>Recent Transactions</h2>

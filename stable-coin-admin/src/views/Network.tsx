@@ -2,7 +2,7 @@ import { computed, defineComponent } from "vue";
 import "./Network.css";
 import worldMap from "../assets/img_world_map.svg";
 import Metric from "../components/Metric";
-import { availableNodes, State } from "../store/state";
+import {availableNodes, mainnetNodes, State, testnetNodes} from "../store/state";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
@@ -70,17 +70,24 @@ export default defineComponent({
                     </div>
                     <div class="Network-worldImageContainer">
                         <img class="Network-worldImage" src={worldMap} />
-                        <div class="Network-hederaNodePin" data-value={1} />
-                        <div class="Network-hederaNodePin" data-value={2} />
-                        <div class="Network-hederaNodePin" data-value={3} />
-                        <div class="Network-hederaNodePin" data-value={4} />
-                        <div class="Network-hederaNodePin" data-value={5} />
-                        <div class="Network-hederaNodePin" data-value={6} />
-                        <div class="Network-hederaNodePin" data-value={7} />
-                        <div class="Network-hederaNodePin" data-value={8} />
-                        <div class="Network-hederaNodePin" data-value={9} />
-                        <div class="Network-hederaNodePin" data-value={10} />
-                        <div class="Network-hederaNodePin" data-value={11} />
+                        {testnetNodes.map((node: {left: any; top: any; }) => (
+                            <div
+                                class={[
+                                    "Network-hederaTestnetNodePin",
+                                ]}
+                                style={{ left: node.left, top: node.top }}
+                            />
+
+                        ))}
+                        {mainnetNodes.map((node: {left: any; top: any; }) => (
+                            <div
+                                class={[
+                                    "Network-hederaNodePin",
+                                ]}
+                                style={{ left: node.left, top: node.top }}
+                            />
+
+                        ))}
                         {availableNodes.map((node: { address: string; left: any; top: any; }) => (
                             <div
                                 class={[
@@ -98,6 +105,10 @@ export default defineComponent({
                             <div class="Network-nodeLegendPin hedera" />
                             <div class="Network-nodeLegendPinLabel">
                                 Hedera Mainnet Node
+                            </div>
+                            <div class="Network-nodeLegendPin testnet" />
+                            <div class="Network-nodeLegendPinLabel">
+                                Hedera Testnet Node
                             </div>
                             <div class="Network-nodeLegendPin hsc" />
                             <div class="Network-nodeLegendPinLabel">
