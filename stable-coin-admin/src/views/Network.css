@@ -82,8 +82,7 @@
     background: #009bdd;
 }
 
-/* hedera network nodes */
-
+/* hedera mainnet nodes */
 .Network-hederaNodePin {
     position: absolute;
     width: 12px;
@@ -92,59 +91,13 @@
     background: #fc6e4f;
 }
 
-.Network-hederaNodePin[data-value="1"] {
-    left: 105px;
-    top: 160px;
-}
-
-.Network-hederaNodePin[data-value="2"] {
-    left: 110px;
-    top: 190px;
-}
-
-.Network-hederaNodePin[data-value="3"] {
-    left: 165px;
-    top: 170px;
-}
-
-.Network-hederaNodePin[data-value="4"] {
-    left: 210px;
-    top: 170px;
-}
-
-.Network-hederaNodePin[data-value="5"] {
-    left: 200px;
-    top: 185px;
-}
-
-.Network-hederaNodePin[data-value="6"] {
-    left: 220px;
-    top: 155px;
-}
-
-.Network-hederaNodePin[data-value="7"] {
-    left: 420px;
-    top: 155px;
-}
-
-.Network-hederaNodePin[data-value="8"] {
-    left: 410px;
-    top: 145px;
-}
-
-.Network-hederaNodePin[data-value="9"] {
-    left: 422px;
-    top: 142px;
-}
-
-.Network-hederaNodePin[data-value="10"] {
-    left: 470px;
-    top: 120px;
-}
-
-.Network-hederaNodePin[data-value="11"] {
-    left: 600px;
-    top: 230px;
+/* hedera testnet nodes */
+.Network-hederaTestnetNodePin {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c84ffc;
 }
 
 .Network-nodeLegend {
@@ -165,6 +118,10 @@
 
 .Network-nodeLegendPin.hsc {
     background: #009bdd;
+}
+
+.Network-nodeLegendPin.testnet {
+    background: #c84ffc;
 }
 
 .Network-nodeLegendPinLabel {

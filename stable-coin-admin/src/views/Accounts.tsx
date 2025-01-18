@@ -27,7 +27,7 @@ export default defineComponent({
         return { accounts };
     },
     render() {
-        const totalSupply = this.$store.getters.totalSupply.toFixed(2);
+        const totalSupply = parseInt(this.$store.getters.totalSupply).toLocaleString();
 
         return (
             <div class="Accounts wrapper">
